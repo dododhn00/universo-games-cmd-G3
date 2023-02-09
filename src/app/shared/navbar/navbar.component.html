@@ -1,1 +1,7 @@
-<p>navbar works!</p>
+<div class="sidebar">
+  <img src="https://cdn.discordapp.com/attachments/452893641204301855/1073240114857263124/logoUniversoGames2.png">
+  <a (click)="swapActive('videogames')" [ngClass]="{'active': activeSection == 'videogames'}" [routerLink]="'videogames'">Videogames</a>
+  <a (click)="swapActive('news')" [ngClass]="{'active': activeSection == 'news'}" [routerLink]="'news'">News</a>
+  <a (click)="swapActive('reviews')" [ngClass]="{'active': activeSection == 'reviews'}" [routerLink]="'reviews'">Reviews</a>
+  <a (click)="swapActive('categories')" [ngClass]="{'active': activeSection == 'categories'}" [routerLink]="'categories'">Categories</a>
+</div>
