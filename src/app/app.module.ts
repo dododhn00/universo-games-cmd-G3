@@ -14,6 +14,11 @@ import { ReviewsFormComponent } from './reviews-component/reviews-form/reviews-f
 import { ReviewsListComponent } from './reviews-component/reviews-list/reviews-list.component';
 import { VideogamesListComponent } from './videogames-component/videogames-list/videogames-list.component';
 import { VideogamesFormComponent } from './videogames-component/videogames-form/videogames-form.component';
+import { CategoryFormComponent } from './category-component/category-form/category-form.component';
+import { CategoryListComponent } from './category-component/category-list/category-list.component';
+import { CategoriesComponent } from './pages/categories/categories.component';
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+
 
 @NgModule({
   declarations: [
@@ -27,12 +32,18 @@ import { VideogamesFormComponent } from './videogames-component/videogames-form/
     ReviewsFormComponent,
     ReviewsListComponent,
     VideogamesListComponent,
-    VideogamesFormComponent
+    VideogamesFormComponent,
+    CategoryFormComponent,
+    CategoryListComponent,
+    CategoriesComponent,
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
