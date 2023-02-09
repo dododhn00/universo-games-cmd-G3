@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import {FormControl} from "@angular/forms";
-import {MatDrawerMode} from "@angular/material/sidenav";
+
 
 @Component({
   selector: 'app-navbar',
@@ -8,7 +7,7 @@ import {MatDrawerMode} from "@angular/material/sidenav";
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent {
-    activeSection = '';
+    activeSection = 'videogames';
 
 
   swapActive(page: string) {
