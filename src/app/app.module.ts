@@ -20,6 +20,7 @@ import { CategoriesComponent } from './pages/categories/categories.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,7 +44,7 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
     AppRoutingModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
