@@ -18,6 +18,13 @@ import { CategoryFormComponent } from './category-component/category-form/catego
 import { CategoryListComponent } from './category-component/category-list/category-list.component';
 import { CategoriesComponent } from './pages/categories/categories.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {MatInputModule} from "@angular/material/input";
+import {MatTableModule} from "@angular/material/table";
+
+import {HttpClientModule} from "@angular/common/http";
+import {MatPaginatorModule} from "@angular/material/paginator";
+import {MatButtonModule} from "@angular/material/button";
+import {MatIconModule} from "@angular/material/icon";
 
 
 
@@ -45,6 +52,13 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
     BrowserAnimationsModule,
     ReactiveFormsModule,
     FormsModule,
+    MatInputModule,
+    MatTableModule,
+    MatPaginatorModule,
+    HttpClientModule,
+    MatPaginatorModule,
+    MatButtonModule,
+    MatIconModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
