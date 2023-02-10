@@ -60,7 +60,9 @@ export class VideogamesFormComponent implements OnInit {
 
   onSubmitAddVideogame(){
     if(this.form.invalid){
-      //DA DEFINIRE
+      //DA COMPLETARE
+      //DA COMPLETARE
+      //DA COMPLETARE
     }else{
       this.gameService.addVideogame(this.form.getRawValue()).subscribe(() => {
         //Quando la funzione post di addVideogame sarà conclusa, verrà esegutio sendListUpdated
