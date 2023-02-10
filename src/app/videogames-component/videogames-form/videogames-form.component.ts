@@ -65,11 +65,12 @@ export class VideogamesFormComponent implements OnInit {
   deleteText(index: number) {
     this.textFormArray.removeAt(index);
   }
-
-  onSubmitAddVideogame() {
-    if (this.form.invalid) {
-      //DA DEFINIRE
-    } else {
+  onSubmitAddVideogame(){
+    if(this.form.invalid){
+      //DA COMPLETARE
+      //DA COMPLETARE
+      //DA COMPLETARE
+    }else{
       this.gameService.addVideogame(this.form.getRawValue()).subscribe(() => {
         //Quando la funzione post di addVideogame sarà conclusa, verrà esegutio sendListUpdated
         this.gameService.sendListUpdated();
