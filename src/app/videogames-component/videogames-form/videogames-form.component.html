@@ -1,1 +1,40 @@
-<p>videogames-form works!</p>
+<form [formGroup]="form" (ngSubmit)="onSubmitAddVideogame()" >
+  <p>Titolo:</p>
+  <input type="text" formControlName="title">
+  <p>categoria:</p>
+
+  <p>Categorie</p>
+    <select formControlName="category">
+      <option value="" disabled>Scegli una mossa</option>
+      <option *ngFor="let category of categories">
+        {{ category.name }}
+      </option>
+    </select>
+
+  <p>releasedate:</p>
+  <input type="date" formControlName="releaseDate">
+  <p>genre:</p>
+  <input type="text" formControlName="genre">
+  <p>softwareHouse:</p>
+  <input type="text" formControlName="softwareHouse">
+  <p>publisher::</p>
+  <input type="text" formControlName="publisher">
+  <p>Number of players: :</p>
+  <input type="number" formControlName="numberOfPlayers">
+  <h2>languages:</h2>
+  <div formGroupName="languages">
+    <span>voice</span><input type="button" (click)="addVoice()" value="ADD">
+    <div formArrayName="voice" *ngFor="let singleVoice of voiceFormArray.controls; let i = index">
+      <input type="text" [formControlName]="i">
+    </div>
+    <span>Text</span><input type="button" (click)="addText()" value="ADD">
+    <div formArrayName="text" *ngFor="let singleText of textFormArray.controls; let i = index">
+      <input type="text" [formControlName]="i">
+    </div>
+  </div>
+
+  <p>Cover image url</p>
+  <input type="text" formControlName="coverImage">
+
+  <button type="submit">Add Videogame</button>
+</form>
