@@ -1,39 +1,49 @@
-table {
-  width: 100%;
-}
 
 .mat-mdc-form-field {
   font-size: 14px;
   width: 100%;
 }
 
+
 td, th {
   width: 25%;
 }
 
-.coverImage{
-  width:150px;
-  margin-top:3px;
 
+.coverImage{
+  width:230px;
+  margin-top:15px;
+  margin-bottom:10px;
 }
 
+
 .actions-buttons{
-  width: 40%;
+ width: 35%;
 }
 
 .actions-button1{
-  height:2rem;
   margin-right: 0.4rem;
 }
-
-.actions-button2{
-
-  height:2rem;
-
-}
-
 
   .container-coverImage {
     display: none;
   }
 
+
+@media screen and (min-width: 1300px) {
+  td {
+    font-size: 1.1rem;
+  }
+
+  th {
+    font-size: 1.15rem;
+  }
+
+  .mat-mdc-table{
+    white-space:nowrap;
+  }
+
+  table {
+    width: 70vw;
+  }
+}
