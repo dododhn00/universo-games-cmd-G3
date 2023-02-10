@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {Observable} from "rxjs";
+import {catchError, Observable, Subject} from "rxjs";
 import {Videogame} from "../../model/videogame";
 
 @Injectable({
@@ -11,6 +11,9 @@ export class VideogamesService {
   apiUrl = "https://project-works-rest-api.onrender.com/api/v1/GROUP-III/videogame";
 
 
+  listUpdated = new Subject<Videogame[]>();
+  observableListUpdated$ : Observable<Videogame[]> = this.listUpdated;
+
   constructor(private http: HttpClient) {
   }
 
@@ -18,12 +21,17 @@ export class VideogamesService {
     return this.http.get<Videogame[]>(this.apiUrl);
   };
 
-  getVideogameById(id: string): Observable<Videogame> {
-    return this.http.get<Videogame>(this.apiUrl + '/' + id);
+  sendListUpdated(){
+    this.getVideogames().subscribe((games) => {
+      this.listUpdated.next(games);
+    })
   }
 
+
   addVideogame(videogame: Omit<Videogame, 'id'>){
-    return this.http.post(this.apiUrl,videogame);
+    let risultato = this.http.post<Videogame>(this.apiUrl, videogame);
+
+    return risultato;
   }
 
   deleteVideogameById(id:string) {
