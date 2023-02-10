@@ -1,16 +1,15 @@
-import {Component, OnInit} from '@angular/core';
-import {FormArray, FormControl, FormGroup, Validators} from "@angular/forms";
-import {VideogamesService} from "../service/videogames.service";
-import {CategoriesService} from "../../category-component/service/categories.service";
-import {Category} from "../../model/category";
+import { Component, OnInit } from '@angular/core';
+import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
+import { VideogamesService } from '../service/videogames.service';
+import { CategoriesService } from '../../category-component/service/categories.service';
+import { Category } from '../../model/category';
 
 @Component({
   selector: 'app-videogames-form',
   templateUrl: './videogames-form.component.html',
-  styleUrls: ['./videogames-form.component.css']
+  styleUrls: ['./videogames-form.component.css'],
 })
 export class VideogamesFormComponent implements OnInit {
-
   form: FormGroup = new FormGroup({
     title: new FormControl('', Validators.required),
     category: new FormControl('', Validators.required),
@@ -20,32 +19,34 @@ export class VideogamesFormComponent implements OnInit {
     publisher: new FormControl('', Validators.required),
     numberOfPlayers: new FormControl(Validators.required),
     languages: new FormGroup({
-      voice: new FormArray([new FormControl('',)]),
-      text: new FormArray([new FormControl('',)]),
+      voice: new FormArray([new FormControl('')]),
+      text: new FormArray([new FormControl('')]),
     }),
     coverImage: new FormControl('', Validators.required),
   });
 
   categories!: Category[];
 
-  constructor(private gameService:VideogamesService, private categoriesService:CategoriesService) {
-  }
+  constructor(
+    private gameService: VideogamesService,
+    private categoriesService: CategoriesService
+  ) {}
 
-  ngOnInit():void {
+  ngOnInit(): void {
     this.categoriesService.getCategories().subscribe((array) => {
       this.categories = array;
     });
   }
 
-  get languagesFormGroup() : FormGroup{
+  get languagesFormGroup(): FormGroup {
     return this.form.get('languages') as FormGroup;
   }
 
-  get voiceFormArray() : FormArray{
+  get voiceFormArray(): FormArray {
     return this.languagesFormGroup.get('voice') as FormArray;
   }
 
-  get textFormArray() : FormArray{
+  get textFormArray(): FormArray {
     return this.languagesFormGroup.get('text') as FormArray;
   }
 
@@ -53,21 +54,26 @@ export class VideogamesFormComponent implements OnInit {
     this.voiceFormArray.push(new FormControl());
   }
 
+  deleteVoice(index: number) {
+    this.voiceFormArray.removeAt(index);
+  }
+
   addText() {
     this.textFormArray.push(new FormControl());
   }
 
+  deleteText(index: number) {
+    this.textFormArray.removeAt(index);
+  }
 
-  onSubmitAddVideogame(){
-    if(this.form.invalid){
+  onSubmitAddVideogame() {
+    if (this.form.invalid) {
       //DA DEFINIRE
-    }else{
+    } else {
       this.gameService.addVideogame(this.form.getRawValue()).subscribe(() => {
         //Quando la funzione post di addVideogame sarà conclusa, verrà esegutio sendListUpdated
         this.gameService.sendListUpdated();
       });
     }
-
   }
-
 }
