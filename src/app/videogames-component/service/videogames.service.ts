@@ -10,6 +10,7 @@ export class VideogamesService {
 
   apiUrl = "https://project-works-rest-api.onrender.com/api/v1/GROUP-III/videogame";
 
+
   constructor(private http: HttpClient) {
   }
 
@@ -26,6 +27,7 @@ export class VideogamesService {
   }
 
   deleteVideogameById(id:string) {
+    console.log('ID:' + id);
     return this.http.delete(this.apiUrl + '/' + id);
   }
 

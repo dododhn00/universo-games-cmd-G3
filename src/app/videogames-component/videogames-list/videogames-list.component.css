@@ -31,3 +31,9 @@ td, th {
   height:2rem;
 
 }
+
+
+  .container-coverImage {
+    display: none;
+  }
+
