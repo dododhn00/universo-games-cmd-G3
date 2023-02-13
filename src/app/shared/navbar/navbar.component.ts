@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import { Router} from "@angular/router";
 
 
 @Component({
@@ -6,11 +7,18 @@ import { Component } from '@angular/core';
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
-export class NavbarComponent {
-    activeSection = 'videogames';
+export class NavbarComponent implements OnInit{
+  activeSection = 'videogames';
+
+  constructor(private router:Router) {}
 
 
-  swapActive(page: string) {
-    this.activeSection = page;
+  swapActive(url: string) {
+    this.activeSection = url;
   }
+
+  ngOnInit() {
+    this.router.navigateByUrl('');
+  }
+
 }

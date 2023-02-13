@@ -5,5 +5,6 @@ export interface SingleNews {
   imageUrl: string;
   content: string;
   publicationDate: string;
+  authorName: string;
   tags: string[];
 }

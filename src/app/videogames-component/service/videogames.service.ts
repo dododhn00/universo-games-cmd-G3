@@ -20,6 +20,8 @@ export class VideogamesService {
 
 
   addVideogame(videogame: Omit<Videogame, 'id'>){
+    const stringified = JSON.stringify(videogame.releaseDate);
+    videogame.releaseDate = stringified.substring(1, 11);
     return this.http.post<Videogame>(this.apiUrl, videogame);
   }
 
@@ -29,6 +31,8 @@ export class VideogamesService {
 
 
   editVideogameById(id:string, videogame:Videogame) {
+    const stringified = JSON.stringify(videogame.releaseDate);
+    videogame.releaseDate = stringified.substring(1, 11);
     return this.http.put(this.apiUrl + '/' + id, videogame);
   }
 
