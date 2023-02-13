@@ -1,1 +1,89 @@
-<p>news-list works!</p>
+<button
+  mat-raised-button
+  color="primary"
+  class="add-news"
+  (click)="addDialog()"
+>
+  ADD NEWS
+</button>
+
+<mat-form-field>
+  <mat-label>Filter</mat-label>
+  <input
+    matInput
+    (keyup)="applyFilter($event)"
+    placeholder="Search by title, category or publisher"
+    #input
+  />
+</mat-form-field>
+
+<div class="mat-elevation-z8">
+  <table mat-table [dataSource]="dataSource">
+    <!-- Position Column -->
+
+    <ng-container matColumnDef="imageUrl" class="container-coverImage">
+      <th mat-header-cell *matHeaderCellDef>Cover Image</th>
+      <td mat-cell *matCellDef="let element">
+        <img class="coverImage" src="{{ element.imageUrl }}" />
+      </td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="title">
+      <th mat-header-cell *matHeaderCellDef>Title</th>
+      <td mat-cell *matCellDef="let element">{{ element.title }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="publicationDate">
+      <th mat-header-cell *matHeaderCellDef>Publication Date</th>
+      <td mat-cell *matCellDef="let element">{{ element.publicationDate }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="authorName">
+      <th mat-header-cell *matHeaderCellDef>Publisher</th>
+      <td mat-cell *matCellDef="let element">{{ element.authorName }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="actions" class="actions">
+      <th mat-header-cell *matHeaderCellDef class="actions-buttons">Actions</th>
+      <td mat-cell *matCellDef="let row; let i = index">
+        <button
+          mat-raised-button
+          color="basic"
+          class="actions-button2"
+          (click)="viewDialog(row)"
+        >
+          <mat-icon>remove_red_eye</mat-icon>
+        </button>
+
+        <button
+          mat-raised-button
+          color="primary"
+          class="actions-button1"
+          (click)="openDialog(row)"
+        >
+          <mat-icon>edit</mat-icon>
+        </button>
+
+        <button
+          mat-raised-button
+          color="warn"
+          class="actions-button2"
+          (click)="onClickDeleteSingleNews(row._id, row.title); openSnackBar()"
+        >
+          <mat-icon>delete</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+
+  <mat-paginator
+    [length]="numberOfNews"
+    [pageSizeOptions]="[5, 10, 20]"
+    [pageSize]="5"
+  >
+  </mat-paginator>
+</div>

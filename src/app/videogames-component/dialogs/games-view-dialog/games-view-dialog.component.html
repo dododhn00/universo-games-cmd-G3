@@ -1,18 +1,18 @@
-<h2 mat-dialog-title [align]="'center'"> {{videogame.title}} </h2>
+<h2 mat-dialog-title [align]="'center'">{{ videogame.title }}</h2>
 <div mat-dialog-content [align]="'center'">
-  <img [src]="videogame.coverImage">
+  <img [src]="videogame.coverImage" />
   <div class="info-container">
     <div>
-      <p>Category: {{videogame.category}}</p>
-      <p>ReleaseDate: {{videogame.releaseDate}}</p>
+      <p>Category: {{ videogame.category }}</p>
+      <p>ReleaseDate: {{ videogame.releaseDate }}</p>
     </div>
     <div>
-      <p>Genre: {{videogame.genre}}</p>
-      <p>Software House: {{videogame.softwareHouse}}</p>
+      <p>Genre: {{ videogame.genre }}</p>
+      <p>Software House: {{ videogame.softwareHouse }}</p>
     </div>
     <div>
-      <p>Publisher: {{videogame.publisher}}</p>
-      <p>Number of Players: {{videogame.numberOfPlayers}}</p>
+      <p>Publisher: {{ videogame.publisher }}</p>
+      <p>Number of Players: {{ videogame.numberOfPlayers }}</p>
     </div>
   </div>
 
@@ -20,23 +20,16 @@
     <div>
       <h2>Languages Voice:</h2>
 
-        <mat-chip
-          class="chips"
-          *ngFor="let voice of videogame.languages.voice">
-          {{voice}}
-        </mat-chip>
-
+      <mat-chip class="chips" *ngFor="let voice of videogame.languages.voice">
+        {{ voice }}
+      </mat-chip>
     </div>
 
     <div>
       <h2>Languages Text:</h2>
-      <mat-chip
-        class="chips"
-        *ngFor="let text of videogame.languages.text">
-        {{text}}
+      <mat-chip class="chips" *ngFor="let text of videogame.languages.text">
+        {{ text }}
       </mat-chip>
-
     </div>
   </div>
 </div>
-
