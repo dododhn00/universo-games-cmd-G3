@@ -4,9 +4,10 @@
 }
 
 
-@media screen and (min-width: 700px) {
+@media screen and (min-width: 875px) {
   .content{
     margin-left: 210px;
   }
 
 }
+
