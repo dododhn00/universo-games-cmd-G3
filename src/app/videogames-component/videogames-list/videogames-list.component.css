@@ -1,3 +1,7 @@
+.mat-elevation-z8{
+  margin-bottom:3rem;
+  width: 100%;
+}
 
 .mat-mdc-form-field {
   font-size: 14px;
@@ -5,29 +9,41 @@
 }
 
 
-td, th {
-  width: 25%;
-}
-
-
 .coverImage{
-  width:230px;
+  width:190px;
   margin-top:15px;
   margin-bottom:10px;
 }
 
 
-.actions-buttons{
- width: 35%;
-}
 
 .actions-button1{
+  margin-top: 0.4rem;
   margin-right: 0.4rem;
+  padding-right: 0.2rem;
+  margin-bottom: 0.4rem;
+  width:0.5rem;
+}
+
+.actions-button2{
+  margin-top: 0.4rem;
+  margin-right: 0.4rem;
+  padding-right: 0.2rem;
+  margin-bottom: 0.4rem;
+
 }
 
   .container-coverImage {
     display: none;
   }
+
+.add-game{
+  width:100%;
+  margin-top:1.5rem;
+  margin-bottom:1.5rem;
+}
+
+
 
 
 @media screen and (min-width: 1300px) {
@@ -46,4 +62,12 @@ td, th {
   table {
     width: 70vw;
   }
+
+  td, th {
+    width:20%;
+  }
 }
+
+
+
+

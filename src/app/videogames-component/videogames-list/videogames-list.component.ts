@@ -3,7 +3,12 @@ import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
 import {VideogamesService} from "../service/videogames.service";
 import {Videogame} from "../../model/videogame";
-
+import {MatSnackBar} from "@angular/material/snack-bar";
+import {MatDialog, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import {GamesEditDialogComponent} from "../dialogs/edit-dialog/games-edit-dialog.component";
+import {MatSort} from "@angular/material/sort";
+import {GamesAddDialogComponent} from "../dialogs/add-dialog/games-add-dialog.component";
+import {GamesViewDialogComponent} from "../dialogs/games-view-dialog/games-view-dialog.component";
 
 export interface VideogameShort{
   title: string,
@@ -19,16 +24,17 @@ export class VideogamesListComponent implements OnInit {
   displayedColumns: string[] = ['coverImage', 'title','category','publisher', 'actions'];
   dataSource = new MatTableDataSource<Videogame>();
   numberOfGames = 0;
-  videogames: Videogame[] = [];
 
   innerWidth:any;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild(MatSort) sort!: MatSort;
 
 
 
-
-  constructor(private gameService:VideogamesService) {
+  constructor(private gameService:VideogamesService,
+              private _snackBar: MatSnackBar,
+              private dialog: MatDialog) {
 
   }
 
@@ -38,39 +44,32 @@ export class VideogamesListComponent implements OnInit {
     this.innerWidth = window.innerWidth;
     this.changeVisibileColumns();
 
-    //Inizializzo la tabella con i dati
-    this.gameService.getVideogames().subscribe((game) => {
+    this.getAllVideogames();
+  }
 
-      this.numberOfGames = game.length;
-      this.dataSource = new MatTableDataSource(game);
-      this.videogames = game.slice();
-
-      //Imposto un timeout per essere sicuro che tutti i dati siano stati ottenuti,
-      // altrimenti il paginator verrebbe assegnato undefined.
-      setTimeout(()=>{
+  //Funzione per recuperare i dati e inserirli nella tabella
+  getAllVideogames(){
+    this.gameService.getVideogames().subscribe( {
+      next:(games) => {
+        this.dataSource = new MatTableDataSource(games);
         this.dataSource.paginator = this.paginator;
-      })
+        this.dataSource.sort = this.sort;
+      },
+      error:(err) =>{
+        alert("There was a problem  retrieving the data");
+      }
     });
-
-    this.gameService.observableListUpdated$.subscribe((videogames) => {
-      this.dataSource.data = videogames;
-      this.videogames = this.dataSource.data;
-      this.dataSource._updateChangeSubscription();
-    })
-
   }
 
 
+  lastGameDeleted = ''
   //funzione per eliminazione di un videogame
-  onClickDeleteVideogame(index:number){
-    const { pageIndex, pageSize } = this.paginator;
-    const removeIndex = index + (pageIndex * pageSize);
+  onClickDeleteVideogame(id:string, title:string){
+    this.gameService.deleteVideogameById(id).subscribe(() =>{
+      this.getAllVideogames();
+    });
 
-    this.gameService.deleteVideogameById(this.videogames[removeIndex]._id).subscribe();
-
-      this.dataSource.data.splice(removeIndex,1);
-      this.videogames = this.dataSource.data;
-      this.dataSource._updateChangeSubscription();
+    this.lastGameDeleted = title;
   }
 
 
@@ -78,6 +77,10 @@ export class VideogamesListComponent implements OnInit {
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
+
+    if(this.dataSource.paginator){
+      this.dataSource.paginator.firstPage();
+    }
   }
 
 
@@ -98,6 +101,43 @@ export class VideogamesListComponent implements OnInit {
     }
   }
 
+  //Funzione per la creazione dello snackbar, utilizzato in segutio all'eliminazione di un elemento
+  openSnackBar() {
+    this._snackBar.open(this.lastGameDeleted + ' Deleted', 'Close', {
+      duration: 3200,
+      panelClass: ['delete-snackbar']
+    })
+
+  }
+
+  //Apertura edit-dialog
+  openDialog(row: any) {
+    this.dialog.open(GamesEditDialogComponent, {
+      panelClass: 'videogame-dialog',
+      data:row,
+    }).afterClosed().subscribe(value => {
+      if(value === 'edit'){
+        this.getAllVideogames();
+      }
+    });
+  }
+
+  addDialog() {
+    this.dialog.open(GamesAddDialogComponent, {
+      panelClass: 'videogame-dialog'
+    }).afterClosed().subscribe(value => {
+      if (value === 'save') {
+        this.getAllVideogames();
+      }
+    });
+  }
+
+  viewDialog(videogame : Videogame) {
+    this.dialog.open(GamesViewDialogComponent, {
+      panelClass: 'view-videogame-dialog',
+      data:videogame,
+    });
+  }
 
 }
 
