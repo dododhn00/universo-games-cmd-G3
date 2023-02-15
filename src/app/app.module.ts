@@ -15,23 +15,28 @@ import { VideogamesListComponent } from './videogames-component/videogames-list/
 import { CategoryFormComponent } from './category-component/category-form/category-form.component';
 import { CategoryListComponent } from './category-component/category-list/category-list.component';
 import { CategoriesComponent } from './pages/categories/categories.component';
-import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import {MatInputModule} from "@angular/material/input";
-import {MatTableModule} from "@angular/material/table";
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
+import { MatTableModule } from '@angular/material/table';
 
-import {HttpClientModule} from "@angular/common/http";
-import {MatPaginatorModule} from "@angular/material/paginator";
-import {MatButtonModule} from "@angular/material/button";
-import {MatIconModule} from "@angular/material/icon";
-import {MatSelectModule} from "@angular/material/select";
-import {MatSnackBarModule} from "@angular/material/snack-bar";
-import {MatDialogModule} from "@angular/material/dialog";
+import { HttpClientModule } from '@angular/common/http';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatSelectModule } from '@angular/material/select';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatDialogModule } from '@angular/material/dialog';
 import { GamesEditDialogComponent } from './videogames-component/dialogs/edit-dialog/games-edit-dialog.component';
 import { GamesAddDialogComponent } from './videogames-component/dialogs/add-dialog/games-add-dialog.component';
-import {MatFormFieldModule} from "@angular/material/form-field";
-import {MatDatepickerModule} from "@angular/material/datepicker";
-import {MatNativeDateModule} from "@angular/material/core";
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 import { GamesViewDialogComponent } from './videogames-component/dialogs/games-view-dialog/games-view-dialog.component';
+
+import { NewsViewDialogComponent } from './news-component/dialogs/news-view-dialog/news-view-dialog.component';
+import { NewsAddDialogComponent } from './news-component/dialogs/add-dialog/news-add-dialog/news-add-dialog.component';
+import { NewsEditDialogComponent } from './news-component/dialogs/edit-dialog/news-edit-dialog/news-edit-dialog.component';
+
 import {MatChipsModule} from "@angular/material/chips";
 import { ReviewsAddDialogComponent } from './reviews-component/dialogs/reviews-add-dialog/reviews-add-dialog.component';
 import { ReviewsEditDialogComponent } from './reviews-component/dialogs/reviews-edit-dialog/reviews-edit-dialog.component';
@@ -39,8 +44,6 @@ import { ReviewsViewDialogComponent } from './reviews-component/dialogs/reviews-
 import {MatAutocompleteModule} from "@angular/material/autocomplete";
 import {MatExpansionModule} from "@angular/material/expansion";
 import {MatTabsModule} from "@angular/material/tabs";
-
-
 
 
 @NgModule({
@@ -61,11 +64,15 @@ import {MatTabsModule} from "@angular/material/tabs";
     GamesEditDialogComponent,
     GamesAddDialogComponent,
     GamesViewDialogComponent,
+
+    NewsViewDialogComponent,
+    NewsAddDialogComponent,
+    NewsEditDialogComponent,
     ReviewsAddDialogComponent,
     ReviewsEditDialogComponent,
     ReviewsViewDialogComponent
-
   ],
+   
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -90,7 +97,8 @@ import {MatTabsModule} from "@angular/material/tabs";
     MatExpansionModule,
     MatTabsModule
   ],
+
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

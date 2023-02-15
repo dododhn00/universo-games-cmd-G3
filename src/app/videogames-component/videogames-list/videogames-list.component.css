@@ -1,5 +1,5 @@
-.mat-elevation-z8{
-  margin-bottom:3rem;
+.mat-elevation-z8 {
+  margin-bottom: 3rem;
   width: 100%;
 }
 
@@ -8,43 +8,36 @@
   width: 100%;
 }
 
-
-.coverImage{
-  width:190px;
-  margin-top:15px;
-  margin-bottom:10px;
+.coverImage {
+  width: 190px;
+  margin-top: 15px;
+  margin-bottom: 10px;
 }
 
-
-
-.actions-button1{
+.actions-button1 {
   margin-top: 0.4rem;
   margin-right: 0.4rem;
   padding-right: 0.2rem;
   margin-bottom: 0.4rem;
-  width:0.5rem;
+  width: 0.5rem;
 }
 
-.actions-button2{
+.actions-button2 {
   margin-top: 0.4rem;
   margin-right: 0.4rem;
   padding-right: 0.2rem;
   margin-bottom: 0.4rem;
-
 }
 
-  .container-coverImage {
-    display: none;
-  }
-
-.add-game{
-  width:100%;
-  margin-top:1.5rem;
-  margin-bottom:1.5rem;
+.container-coverImage {
+  display: none;
 }
 
-
-
+.add-game {
+  width: 100%;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
 
 @media screen and (min-width: 1300px) {
   td {
@@ -55,19 +48,16 @@
     font-size: 1.15rem;
   }
 
-  .mat-mdc-table{
-    white-space:nowrap;
+  .mat-mdc-table {
+    white-space: nowrap;
   }
 
   table {
     width: 70vw;
   }
 
-  td, th {
-    width:20%;
+  td,
+  th {
+    width: 20%;
   }
 }
-
-
-
-

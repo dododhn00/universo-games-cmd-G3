@@ -1,0 +1,26 @@
+<h2 mat-dialog-title [align]="'center'">{{ singleNews.title }}</h2>
+<div mat-dialog-content [align]="'center'">
+  <img [src]="singleNews.imageUrl" />
+  <div class="info-container">
+    <div>
+      <p>Category: {{ singleNews.category }}</p>
+      <p>PublicationDate: {{ singleNews.publicationDate }}</p>
+    </div>
+    <div>
+      <p>Content: {{ singleNews.content }}</p>
+    </div>
+    <div>
+      <p>Publisher: {{ singleNews.authorName }}</p>
+    </div>
+  </div>
+
+  <div class="info-container">
+    <div>
+      <h2>Tags:</h2>
+
+      <mat-chip class="chips" *ngFor="let tag of singleNews.tags">
+        {{ tag }}
+      </mat-chip>
+    </div>
+  </div>
+</div>
