@@ -40,7 +40,7 @@ export class NewsAddDialogComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.dialogRef.updateSize('40%', '80%');
+    this.dialogRef.updateSize('75%', '80%');
     this.categoriesService.getCategories().subscribe((array) => {
       this.categories = array;
     });

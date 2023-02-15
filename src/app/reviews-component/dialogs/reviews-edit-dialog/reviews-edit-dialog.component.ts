@@ -99,7 +99,7 @@ export class ReviewsEditDialogComponent implements OnInit{
       this.form.controls['title'].setValue(this.dataToEdit.title);
       this.form.controls['publicationDate'].setValue(this.dataToEdit.publicationDate);
       this.form.controls['content'].setValue(this.dataToEdit.content);
-      this.form.controls['score'].setValue(this.dataToEdit.score);
+      this.form.controls['score'].setValue(this.dataToEdit.score, [Validators.required, Validators.max(10), Validators.min(1)]);
       this.form.controls['reviewerName'].setValue(this.dataToEdit.reviewerName);
 
       for(let i = 0; i < this.dataToEdit.imageUrls.length; i++){

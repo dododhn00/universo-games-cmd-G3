@@ -15,7 +15,7 @@ export class ReviewsAddDialogComponent  implements OnInit{
     title: new FormControl('', Validators.required),
     publicationDate: new FormControl('', Validators.required),
     content: new FormControl('', Validators.required),
-    score: new FormControl('', Validators.required),
+    score: new FormControl('', [Validators.required, Validators.max(10), Validators.min(1)]),
     reviewerName: new FormControl('', Validators.required),
     imageUrls: new FormArray([new FormControl('', Validators.required)]),
     reviewedGame: new FormGroup(

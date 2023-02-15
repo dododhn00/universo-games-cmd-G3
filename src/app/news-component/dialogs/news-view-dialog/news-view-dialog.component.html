@@ -21,15 +21,16 @@
               </mat-panel-title>
 
             </mat-expansion-panel-header>
+            <div>
+              <p>Tags: <mat-chip class="tags" *ngFor="let tag of singleNews.tags">{{tag}}</mat-chip></p>
+            </div>
 
             <div class="info-container" [align]="'start'">
                 <p>Author: <mat-chip>{{singleNews.authorName}}</mat-chip></p>
                 <p>Category: <mat-chip>{{singleNews.category}}</mat-chip></p>
                 <p>Publication Date: <mat-chip>{{singleNews.publicationDate}}</mat-chip></p>
-
-
-
             </div>
+
             <br>
             <p class="content">{{singleNews.content}}</p>
           </mat-expansion-panel>

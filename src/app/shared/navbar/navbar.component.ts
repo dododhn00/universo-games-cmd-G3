@@ -29,7 +29,7 @@ export class NavbarComponent implements OnInit{
 
   openDialog() {
     this.dialog.open(CategoryComponent, {
-      panelClass: 'videogame-dialog'
+      panelClass: 'category-dialog'
     }).afterClosed().subscribe(value => {
       if (value === 'save') {
         this.categoriesService.getCategories();

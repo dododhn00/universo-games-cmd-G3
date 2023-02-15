@@ -31,7 +31,7 @@ export class NewsEditDialogComponent {
   ) {}
 
   ngOnInit() {
-    this.dialogRef.updateSize('30%', '80%');
+    this.dialogRef.updateSize('75%', '80%');
     this.categoriesService.getCategories().subscribe((array) => {
       this.categories = array;
     });
