@@ -1,1 +1,96 @@
-<p>news-edit-dialog works!</p>
+<div class="container">
+  <h2 mat-dialog-title>Add News</h2>
+  <div mat-dialog-content class="content">
+    <form [formGroup]="form">
+      <mat-form-field appearance="outline">
+        <mat-label>Title</mat-label>
+        <input formControlName="title" matInput placeholder="Title" />
+        <mat-icon matSuffix>title</mat-icon>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="example-form-field">
+        <mat-label>Publication Date</mat-label>
+        <input
+          formControlName="publicationDate"
+          matInput
+          [matDatepicker]="datepicker"
+        />
+
+        <mat-datepicker-toggle
+          matIconSuffix
+          [for]="datepicker"
+        ></mat-datepicker-toggle>
+        <mat-datepicker #datepicker>
+          <mat-datepicker-actions>
+            <button mat-button matDatepickerCancel>Cancel</button>
+            <button mat-raised-button color="primary" matDatepickerApply>
+              Apply
+            </button>
+          </mat-datepicker-actions>
+        </mat-datepicker>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Content</mat-label>
+        <textarea
+          cdkTextareaAutosize
+          cdkAutosizeMinRows="5"
+          cdkAutosizeMaxRows="20"
+          formControlName="content"
+          matInput
+          placeholder="Enter here the content of your news."
+        ></textarea>
+        <mat-icon matSuffix>text_fields</mat-icon>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Publisher</mat-label>
+        <input formControlName="authorName" matInput placeholder="Publisher" />
+        <mat-icon matSuffix>home</mat-icon>
+      </mat-form-field>
+
+      <h2>Tags</h2>
+      <div
+        class="image"
+        formArrayName="tags"
+        *ngFor="let tag of tagsFormArray.controls; let i = index"
+      >
+        <mat-form-field appearance="outline">
+          <mat-label>Tags</mat-label>
+          <input [formControlName]="i" matInput placeholder="New Tag..." />
+          <button
+            type="button"
+            mat-button
+            matSuffix
+            mat-raised-button
+            class="button-delete"
+            (click)="deleteTag(i)"
+          >
+            X
+          </button>
+        </mat-form-field>
+      </div>
+
+      <button
+        type="button"
+        color="primary"
+        mat-raised-button
+        class="button-add"
+        (click)="addTag()"
+      >
+        ADD TAG
+      </button>
+    </form>
+  </div>
+
+  <mat-dialog-actions [align]="'end'">
+    <button color="warn" mat-dialog-close mat-raised-button>Cancel</button>
+    <button
+      color="primary"
+      (click)="onSubmitEditSingleNews()"
+      mat-raised-button
+    >
+      Save Update
+    </button>
+  </mat-dialog-actions>
+</div>
