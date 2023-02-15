@@ -60,7 +60,7 @@
       </mat-form-field>
 
       <!-- <h3>Tags</h3>
-        <div formArrayName="tags" 
+        <div formArrayName="tags"
         *ngFor="let singleTag of tagsFormArray.controls; let i = index"> -->
 
       <mat-form-field class="example-chip-list" appearance="fill">
@@ -73,7 +73,7 @@
             (edited)="edit(i, $event)"
             [aria-description]="'press enter to edit ' + singleTag"
           >
-            {{ singleTag }}
+            {{singleTag.getRawValue()}}
             <button matChipRemove [attr.aria-label]="'remove ' + singleTag">
               <mat-icon>cancel</mat-icon>
             </button>
@@ -97,7 +97,7 @@
               <button type="button" mat-raised-button matSuffix class="button-delete" (click)="deleteText(i)">X</button>
             </mat-form-field>
           </div>
-  
+
           <button type="button" color="primary" mat-raised-button class="button-add" (click)="addText()">ADD TEXT</button>
         </div> -->
     </form>
