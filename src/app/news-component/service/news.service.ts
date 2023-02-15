@@ -15,7 +15,7 @@ export class NewsService {
     return this.http.get<SingleNews[]>(this.apiUrl);
   }
 
-  getSingleNews(id: string): Observable<SingleNews> {
+  getSingleNewsById(id: string): Observable<SingleNews> {
     return this.http.get<SingleNews>(this.apiUrl + '/' + id);
   }
 

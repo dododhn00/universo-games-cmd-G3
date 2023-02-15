@@ -25,7 +25,7 @@ export class NewsListComponent implements OnInit {
     'imageUrl',
     'title',
     'publicationDate',
-    'publisher',
+    'authorName',
     'actions',
   ];
   dataSource = new MatTableDataSource<SingleNews>();
@@ -97,14 +97,14 @@ export class NewsListComponent implements OnInit {
         'imageUrl',
         'title',
         'publicationDate',
-        'publisher',
+        'authorName',
         'actions',
       ];
     } else {
       this.displayedColumns = [
         'title',
         'publicationDate',
-        'publisher',
+        'authorName',
         'actions',
       ];
     }

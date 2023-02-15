@@ -22,7 +22,7 @@ export class NewsAddDialogComponent {
     contnt: new FormControl('', Validators.required),
     publicationDate: new FormControl('', Validators.required),
     authorName: new FormControl('', Validators.required),
-    tags: new FormArray([]),
+    tags: new FormArray([new FormControl('', Validators.required)]),
   });
 
   categories!: Category[];
@@ -34,7 +34,7 @@ export class NewsAddDialogComponent {
   ) {}
 
   ngOnInit() {
-    this.dialogRef.updateSize('30%', '80%');
+    this.dialogRef.updateSize('40%', '80%');
     this.categoriesService.getCategories().subscribe((array) => {
       this.categories = array;
     });
