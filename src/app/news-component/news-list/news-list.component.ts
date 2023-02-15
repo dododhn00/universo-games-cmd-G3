@@ -53,7 +53,7 @@ export class NewsListComponent implements OnInit {
   getAllNews() {
     this.newsService.getNews().subscribe({
       next: (news) => {
-        this.dataSource = new MatTableDataSource(news);
+        this.dataSource = new MatTableDataSource(news.reverse());
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
       },

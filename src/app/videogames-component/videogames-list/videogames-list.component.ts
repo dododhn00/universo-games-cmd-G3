@@ -51,7 +51,7 @@ export class VideogamesListComponent implements OnInit {
   getAllVideogames(){
     this.gameService.getVideogames().subscribe( {
       next:(games) => {
-        this.dataSource = new MatTableDataSource(games);
+        this.dataSource = new MatTableDataSource(games.reverse());
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
       },

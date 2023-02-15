@@ -14,7 +14,7 @@
 
     <ng-container matColumnDef="imageUrls" class="hide-low-resolution">
       <th mat-header-cell *matHeaderCellDef> Image </th>
-      <td mat-cell *matCellDef="let element"> <img class="imageUrls" src="{{element.imageUrls[0]}}"></td>
+      <td mat-cell *matCellDef="let element"> <img class="imageUrls" src="{{element.imageUrls[0]}}" onerror="this.src='assets/images/placeoholder.webp';"></td>
     </ng-container>
 
     <!-- Name Column -->

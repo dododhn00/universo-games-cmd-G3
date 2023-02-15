@@ -14,7 +14,7 @@
 
     <ng-container matColumnDef="coverImage" class="container-coverImage">
       <th mat-header-cell *matHeaderCellDef> Cover Image </th>
-      <td mat-cell *matCellDef="let element"> <img class="coverImage" src="{{element.coverImage}}"></td>
+      <td mat-cell *matCellDef="let element"> <img class="coverImage" src="{{element.coverImage}}" onerror="this.src='assets/images/placeoholder.webp';"></td>
     </ng-container>
 
     <!-- Name Column -->

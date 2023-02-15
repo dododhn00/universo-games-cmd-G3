@@ -1,5 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import { Router} from "@angular/router";
+import {CategoriesService} from "../../category-component/service/categories.service";
+import {CategoryComponent} from "../../category-component/dialog/category.component";
+import {MatDialog} from "@angular/material/dialog";
 
 
 @Component({
@@ -10,7 +13,9 @@ import { Router} from "@angular/router";
 export class NavbarComponent implements OnInit{
   activeSection = 'videogames';
 
-  constructor(private router:Router) {}
+  constructor(private router:Router,
+              private categoriesService:CategoriesService,
+              private dialog: MatDialog,) {}
 
 
   swapActive(url: string) {
@@ -19,6 +24,17 @@ export class NavbarComponent implements OnInit{
 
   ngOnInit() {
     this.router.navigateByUrl('');
+  }
+
+
+  openDialog() {
+    this.dialog.open(CategoryComponent, {
+      panelClass: 'videogame-dialog'
+    }).afterClosed().subscribe(value => {
+      if (value === 'save') {
+        this.categoriesService.getCategories();
+      }
+    });
   }
 
 }

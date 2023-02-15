@@ -1,0 +1,31 @@
+<div class="container">
+  <h2 mat-dialog-title> Categories </h2>
+    <div mat-dialog-content class="content">
+
+      <form [formGroup]="form" >
+        <mat-form-field appearance="outline" class="search">
+          <input formControlName="name" matInput placeholder="Category">
+          <mat-icon matSuffix>title</mat-icon>
+        </mat-form-field>
+        <button class="button-add" mat-raised-button color="primary" (click)="onSubmitAddCategory()">ADD CATEGORY</button>
+      </form>
+      <br>
+      <h2>List of Categories</h2>
+      <mat-form-field class="search" >
+        <input  (input)="onTypeSearchCategory()" [(ngModel)]="input" matInput placeholder="Search category">
+      </mat-form-field>
+
+      <div class="lista">
+        <div class="elemento-lista" *ngFor="let category of categories">
+          <p>{{category.name}}<mat-icon color="warn" (click)="onClickDeleteCategory(category._id)">clear</mat-icon></p>
+        </div>
+
+      </div>
+  </div>
+
+  <mat-dialog-actions [align]="'center'">
+
+      <button color="basic" mat-dialog-close mat-raised-button>Close</button>
+
+  </mat-dialog-actions>
+</div>

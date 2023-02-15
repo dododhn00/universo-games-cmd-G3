@@ -47,7 +47,7 @@ export class ReviewsListComponent implements OnInit{
   getAllReviews(){
     this.reviewsService.getReviews().subscribe( {
       next:(reviews) => {
-        this.dataSource = new MatTableDataSource(reviews);
+        this.dataSource = new MatTableDataSource(reviews.reverse());
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
       },

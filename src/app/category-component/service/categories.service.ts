@@ -2,6 +2,9 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Category} from "../../model/category";
+import {MatDialog} from "@angular/material/dialog";
+import {MatSnackBar} from "@angular/material/snack-bar";
+
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +13,8 @@ export class CategoriesService {
 
   apiUrl = "https://project-works-rest-api.onrender.com/api/v1/GROUP-III/category";
 
-  constructor(private http: HttpClient) {
+  constructor(private _snackBar: MatSnackBar,
+              private http:HttpClient) {
   }
 
   getCategories() : Observable<Category[]> {
@@ -24,5 +28,7 @@ export class CategoriesService {
   deleteCategoryById(id:string) {
     return this.http.delete(this.apiUrl + '/' + id);
   }
+
+
 
 }

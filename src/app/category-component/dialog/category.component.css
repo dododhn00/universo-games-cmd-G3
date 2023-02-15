@@ -1,0 +1,79 @@
+
+mat-form-field input{
+  width:100%;
+  margin-top:12px;
+}
+
+mat-form-field{
+  width:100%;
+  margin-top:2px;
+}
+
+
+.button-add{
+  width:100%;
+  text-align:center;
+  margin-bottom: 1rem;
+}
+
+.button-delete {
+
+  background-color: rgb(244, 67, 54);
+  padding: 0.4rem 0.6rem;
+  color:white;
+  margin-right:10px;
+}
+
+h3 {
+  font-size: 1.3rem;
+  padding-top: 0.1rem;
+}
+
+mat-dialog-actions{
+  padding-top: 0.7rem;
+}
+
+.lista{
+  display:flex;
+  flex-direction: column;
+  flex-wrap:wrap;
+  justify-content: space-between;
+}
+.elemento-lista{
+  border: 1px solid whitesmoke;
+  border-radius:7px;
+  width:100%;
+  margin-bottom:0.5rem;
+}
+
+.elemento-lista:hover{
+  background-color: #f0f0f0;
+}
+
+.elemento-lista p{
+  text-align:left;
+  margin-left: 0.4rem;
+  margin-bottom: 0px;
+  display:flex;
+  justify-content: space-between;
+  flex-direction: row;
+  font-size: 1.05rem;
+}
+
+.elemento-lista mat-icon{
+  padding-right:2px;
+}
+
+.search{
+  height:70px;
+}
+.search input {
+  padding:0;
+  margin:0;
+}
+
+
+mat-dialog-actions button{
+  width:90%;
+  margin-bottom: 1rem;
+}

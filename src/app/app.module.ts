@@ -12,9 +12,7 @@ import { NewsFormComponent } from './news-component/news-form/news-form.componen
 import { NewsListComponent } from './news-component/news-list/news-list.component';
 import { ReviewsListComponent } from './reviews-component/reviews-list/reviews-list.component';
 import { VideogamesListComponent } from './videogames-component/videogames-list/videogames-list.component';
-import { CategoryFormComponent } from './category-component/category-form/category-form.component';
-import { CategoryListComponent } from './category-component/category-list/category-list.component';
-import { CategoriesComponent } from './pages/categories/categories.component';
+import { CategoryComponent } from './category-component/dialog/category.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatTableModule } from '@angular/material/table';
@@ -42,6 +40,7 @@ import { ReviewsViewDialogComponent } from './reviews-component/dialogs/reviews-
 import {MatAutocompleteModule} from "@angular/material/autocomplete";
 import {MatExpansionModule} from "@angular/material/expansion";
 import {MatTabsModule} from "@angular/material/tabs";
+import {MatListModule} from "@angular/material/list";
 
 
 @NgModule({
@@ -55,10 +54,7 @@ import {MatTabsModule} from "@angular/material/tabs";
     NewsListComponent,
     ReviewsListComponent,
     VideogamesListComponent,
-
-    CategoryFormComponent,
-    CategoryListComponent,
-    CategoriesComponent,
+    CategoryComponent,
     GamesEditDialogComponent,
     GamesAddDialogComponent,
     GamesViewDialogComponent,
@@ -93,7 +89,8 @@ import {MatTabsModule} from "@angular/material/tabs";
     MatChipsModule,
     MatAutocompleteModule,
     MatExpansionModule,
-    MatTabsModule
+    MatTabsModule,
+    MatListModule
   ],
 
   providers: [],
