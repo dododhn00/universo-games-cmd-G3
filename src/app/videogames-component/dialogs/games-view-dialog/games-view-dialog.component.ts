@@ -9,7 +9,6 @@ import {MAT_DIALOG_DATA} from "@angular/material/dialog";
 })
 export class GamesViewDialogComponent {
   constructor(@Inject(MAT_DIALOG_DATA) public videogame : any) {
-    videogame.releaseDate = videogame.releaseDate.split('T')[0];
   }
 
 

@@ -1,0 +1,46 @@
+img {
+  max-width:49.5%;
+
+  margin-bottom:0.5rem;
+}
+
+.container-img{
+  display:flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top:2rem;
+}
+
+
+.info-container{
+  margin-top:2rem;
+  display:flex;
+  flex-direction:row;
+  flex-wrap:wrap;
+  gap: 2rem;
+}
+
+.chips{
+  margin-right: 0.4rem;
+}
+
+.text-container{
+  margin-top:1rem;
+  max-width:100%;
+  width:800px;
+
+}
+
+
+mat-panel-title{
+  font-size: 1.15rem;
+}
+
+mat-dialog-actions{
+  margin-right: 0.5rem;
+}
+
+.content{
+  white-space: pre-wrap;
+}

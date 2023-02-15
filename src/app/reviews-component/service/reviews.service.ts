@@ -22,6 +22,8 @@ export class ReviewsService {
   }
 
   addReview(review: Omit<Review, 'id'>){
+    const stringified = JSON.stringify(review.publicationDate);
+    review.publicationDate= stringified.substring(1, 11);
     return this.http.post(this.apiUrl,review);
   }
 
@@ -29,8 +31,10 @@ export class ReviewsService {
     return this.http.delete(this.apiUrl + '/' + id);
   }
 
-  editReviewById(review:Review) {
-    return this.http.put(this.apiUrl + '/' + review._id, review);
+  editReviewById(id:string, review:Review) {
+    const stringified = JSON.stringify(review.publicationDate);
+    review.publicationDate= stringified.substring(1, 11);
+    return this.http.put(this.apiUrl + '/' + id, review);
   }
 
 }

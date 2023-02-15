@@ -10,7 +10,6 @@ import { ReviewsComponent } from './pages/reviews/reviews.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { NewsFormComponent } from './news-component/news-form/news-form.component';
 import { NewsListComponent } from './news-component/news-list/news-list.component';
-import { ReviewsFormComponent } from './reviews-component/reviews-form/reviews-form.component';
 import { ReviewsListComponent } from './reviews-component/reviews-list/reviews-list.component';
 import { VideogamesListComponent } from './videogames-component/videogames-list/videogames-list.component';
 import { CategoryFormComponent } from './category-component/category-form/category-form.component';
@@ -33,10 +32,19 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { GamesViewDialogComponent } from './videogames-component/dialogs/games-view-dialog/games-view-dialog.component';
-import { MatChipsModule } from '@angular/material/chips';
+
 import { NewsViewDialogComponent } from './news-component/dialogs/news-view-dialog/news-view-dialog.component';
 import { NewsAddDialogComponent } from './news-component/dialogs/add-dialog/news-add-dialog/news-add-dialog.component';
 import { NewsEditDialogComponent } from './news-component/dialogs/edit-dialog/news-edit-dialog/news-edit-dialog.component';
+
+import {MatChipsModule} from "@angular/material/chips";
+import { ReviewsAddDialogComponent } from './reviews-component/dialogs/reviews-add-dialog/reviews-add-dialog.component';
+import { ReviewsEditDialogComponent } from './reviews-component/dialogs/reviews-edit-dialog/reviews-edit-dialog.component';
+import { ReviewsViewDialogComponent } from './reviews-component/dialogs/reviews-view-dialog/reviews-view-dialog.component';
+import {MatAutocompleteModule} from "@angular/material/autocomplete";
+import {MatExpansionModule} from "@angular/material/expansion";
+import {MatTabsModule} from "@angular/material/tabs";
+
 
 @NgModule({
   declarations: [
@@ -47,7 +55,6 @@ import { NewsEditDialogComponent } from './news-component/dialogs/edit-dialog/ne
     NavbarComponent,
     NewsFormComponent,
     NewsListComponent,
-    ReviewsFormComponent,
     ReviewsListComponent,
     VideogamesListComponent,
 
@@ -57,10 +64,15 @@ import { NewsEditDialogComponent } from './news-component/dialogs/edit-dialog/ne
     GamesEditDialogComponent,
     GamesAddDialogComponent,
     GamesViewDialogComponent,
+
     NewsViewDialogComponent,
     NewsAddDialogComponent,
     NewsEditDialogComponent,
+    ReviewsAddDialogComponent,
+    ReviewsEditDialogComponent,
+    ReviewsViewDialogComponent
   ],
+   
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -81,7 +93,11 @@ import { NewsEditDialogComponent } from './news-component/dialogs/edit-dialog/ne
     MatDatepickerModule,
     MatNativeDateModule,
     MatChipsModule,
+    MatAutocompleteModule,
+    MatExpansionModule,
+    MatTabsModule
   ],
+
   providers: [],
   bootstrap: [AppComponent],
 })
