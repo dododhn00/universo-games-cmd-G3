@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+
+import {Component, OnInit} from '@angular/core';
+
 import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 import { CategoriesService } from 'src/app/category-component/service/categories.service';
@@ -9,12 +11,16 @@ import { COMMA, ENTER } from '@angular/cdk/keycodes';
 
 import { MatChipEditedEvent, MatChipInputEvent } from '@angular/material/chips';
 
+
+
 @Component({
   selector: 'app-news-add-dialog',
   templateUrl: './news-add-dialog.component.html',
   styleUrls: ['./news-add-dialog.component.css'],
 })
+
 export class NewsAddDialogComponent implements OnInit {
+
   form: FormGroup = new FormGroup({
     title: new FormControl('', Validators.required),
     category: new FormControl('', Validators.required),

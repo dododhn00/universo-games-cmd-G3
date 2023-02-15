@@ -32,11 +32,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { GamesViewDialogComponent } from './videogames-component/dialogs/games-view-dialog/games-view-dialog.component';
-
 import { NewsViewDialogComponent } from './news-component/dialogs/news-view-dialog/news-view-dialog.component';
 import { NewsAddDialogComponent } from './news-component/dialogs/add-dialog/news-add-dialog/news-add-dialog.component';
 import { NewsEditDialogComponent } from './news-component/dialogs/edit-dialog/news-edit-dialog/news-edit-dialog.component';
-
 import {MatChipsModule} from "@angular/material/chips";
 import { ReviewsAddDialogComponent } from './reviews-component/dialogs/reviews-add-dialog/reviews-add-dialog.component';
 import { ReviewsEditDialogComponent } from './reviews-component/dialogs/reviews-edit-dialog/reviews-edit-dialog.component';
@@ -72,7 +70,7 @@ import {MatTabsModule} from "@angular/material/tabs";
     ReviewsEditDialogComponent,
     ReviewsViewDialogComponent
   ],
-   
+
   imports: [
     BrowserModule,
     AppRoutingModule,
