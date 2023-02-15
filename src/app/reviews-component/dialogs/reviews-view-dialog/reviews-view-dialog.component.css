@@ -40,3 +40,7 @@ mat-panel-title{
 mat-dialog-actions{
   margin-right: 0.5rem;
 }
+
+.content{
+  white-space: pre-wrap;
+}
