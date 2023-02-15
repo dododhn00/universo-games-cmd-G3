@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 import { CategoriesService } from 'src/app/category-component/service/categories.service';
@@ -14,15 +14,15 @@ import { MatChipEditedEvent, MatChipInputEvent } from '@angular/material/chips';
   templateUrl: './news-add-dialog.component.html',
   styleUrls: ['./news-add-dialog.component.css'],
 })
-export class NewsAddDialogComponent {
+export class NewsAddDialogComponent implements OnInit {
   form: FormGroup = new FormGroup({
     title: new FormControl('', Validators.required),
     category: new FormControl('', Validators.required),
     imageUrl: new FormControl('', Validators.required),
-    contnt: new FormControl('', Validators.required),
+    content: new FormControl('', Validators.required),
     publicationDate: new FormControl('', Validators.required),
     authorName: new FormControl('', Validators.required),
-    tags: new FormArray([new FormControl('', Validators.required)]),
+    tags: new FormArray([]),
   });
 
   categories!: Category[];
@@ -42,14 +42,6 @@ export class NewsAddDialogComponent {
 
   get tagsFormArray(): FormArray {
     return this.form.get('tags') as FormArray;
-  }
-
-  addTag() {
-    this.tagsFormArray.push(new FormControl());
-  }
-
-  deleteTag(index: number) {
-    this.tagsFormArray.removeAt(index);
   }
 
   onSubmitAddSingleNews() {
@@ -73,7 +65,7 @@ export class NewsAddDialogComponent {
 
     // Add our tag
     if (value) {
-      this.tagsFormArray.push(new FormControl());
+      this.tagsFormArray.push(new FormControl(value));
     }
 
     // Clear the input value

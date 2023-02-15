@@ -26,11 +26,22 @@
         <mat-icon matSuffix>add_a_photo</mat-icon>
       </mat-form-field>
 
-      <mat-form-field class="content">
+      <mat-form-field appearance="outline">
+        <mat-label>Content</mat-label>
+        <textarea
+          cdkTextareaAutosize
+          cdkAutosizeMinRows="5"
+          cdkAutosizeMaxRows="20"
+          formControlName="content"
+          matInput
+          placeholder="Enter the content of your nems."
+        ></textarea>
+        <mat-icon matSuffix>text_fields</mat-icon>
+      </mat-form-field>
+      <!-- <mat-form-field class="content">
         <mat-label>Content</mat-label>
         <textarea matInput placeholder="Edit a content..."></textarea>
-      </mat-form-field>
-
+      </mat-form-field> -->
       <mat-form-field appearance="outline" class="example-form-field">
         <mat-label>Publication Date</mat-label>
         <input
@@ -73,7 +84,7 @@
             (edited)="edit(i, $event)"
             [aria-description]="'press enter to edit ' + singleTag"
           >
-            {{ singleTag }}
+            {{ singleTag.getRawValue() }}
             <button matChipRemove [attr.aria-label]="'remove ' + singleTag">
               <mat-icon>cancel</mat-icon>
             </button>

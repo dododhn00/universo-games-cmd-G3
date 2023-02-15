@@ -40,7 +40,7 @@ export class NewsEditDialogComponent {
   }
 
   get tagsFormArray(): FormArray {
-    return this.form.get('tag') as FormArray;
+    return this.form.get('tags') as FormArray;
   }
 
   addTag() {
@@ -51,7 +51,7 @@ export class NewsEditDialogComponent {
     this.tagsFormArray.removeAt(index);
   }
 
-  onSubmitEditVideogame() {
+  onSubmitEditSingleNews() {
     if (!this.form.invalid) {
       this.newsService
         .editNewsById(this.dataToEdit._id, this.form.getRawValue())
