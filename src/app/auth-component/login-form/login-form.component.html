@@ -1,0 +1,25 @@
+
+<div class="container">
+  <form [formGroup]="form" (ngSubmit)="login()">
+
+        <img src="./assets/images/logo.png">
+        <small *ngIf="wrongCredentials" >Wrong email or password </small>
+        <mat-form-field appearance="fill">
+          <mat-label>Enter your email</mat-label>
+          <input formControlName="email" matInput placeholder="email@example.com" required>
+        </mat-form-field>
+
+
+      <mat-form-field appearance="fill">
+        <mat-label>Enter your password</mat-label>
+        <input formControlName="password" matInput [type]="hide ? 'password' : 'text'" required>
+        <button  type="button" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+      </mat-form-field>
+
+
+      <button color="primary" mat-raised-button> LOGIN</button>
+  </form>
+</div>
+

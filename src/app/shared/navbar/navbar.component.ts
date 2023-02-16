@@ -3,6 +3,7 @@ import { Router} from "@angular/router";
 import {CategoriesService} from "../../category-component/service/categories.service";
 import {CategoryComponent} from "../../category-component/dialog/category.component";
 import {MatDialog} from "@angular/material/dialog";
+import {AuthService} from "../../auth-component/service/auth.service";
 
 
 @Component({
@@ -15,7 +16,7 @@ export class NavbarComponent implements OnInit{
 
   constructor(private router:Router,
               private categoriesService:CategoriesService,
-              private dialog: MatDialog,) {}
+              private dialog: MatDialog) {}
 
 
   swapActive(url: string) {
@@ -23,7 +24,7 @@ export class NavbarComponent implements OnInit{
   }
 
   ngOnInit() {
-    this.router.navigateByUrl('');
+    // this.router.navigateByUrl('');
   }
 
 
