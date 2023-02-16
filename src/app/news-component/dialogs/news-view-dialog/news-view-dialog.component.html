@@ -1,56 +1,54 @@
-<h2 mat-dialog-title [align]="'start'"> {{singleNews.title}} </h2>
+<h2 mat-dialog-title [align]="'start'">{{ singleNews.title }}</h2>
 <div mat-dialog-content [align]="'center'">
-
-
   <mat-tab-group animationDuration="0ms">
-
-
-
-    <mat-tab label="Content" >
-
-
+    <mat-tab label="Content">
       <div [align]="'left'" class="text-container">
-        <mat-accordion >
-          <mat-expansion-panel (opened)="panelOpenState = true"
-                               (closed)="panelOpenState = false"
-                               [expanded]="true"
+        <mat-accordion>
+          <mat-expansion-panel
+            (opened)="panelOpenState = true"
+            (closed)="panelOpenState = false"
+            [expanded]="true"
           >
             <mat-expansion-panel-header color="primary">
-              <mat-panel-title>
-                Review Content
-              </mat-panel-title>
-
+              <mat-panel-title> News Content </mat-panel-title>
             </mat-expansion-panel-header>
             <div>
-              <p>Tags: <mat-chip class="tags" *ngFor="let tag of singleNews.tags">{{tag}}</mat-chip></p>
+              <p>
+                Tags:
+                <mat-chip class="tags" *ngFor="let tag of singleNews.tags">{{
+                  tag
+                }}</mat-chip>
+              </p>
             </div>
 
             <div class="info-container" [align]="'start'">
-                <p>Author: <mat-chip>{{singleNews.authorName}}</mat-chip></p>
-                <p>Category: <mat-chip>{{singleNews.category}}</mat-chip></p>
-                <p>Publication Date: <mat-chip>{{singleNews.publicationDate}}</mat-chip></p>
+              <p>
+                Author: <mat-chip>{{ singleNews.authorName }}</mat-chip>
+              </p>
+              <p>
+                Category: <mat-chip>{{ singleNews.category }}</mat-chip>
+              </p>
+              <p>
+                Publication Date:
+                <mat-chip>{{ singleNews.publicationDate }}</mat-chip>
+              </p>
             </div>
 
-            <br>
-            <p class="content">{{singleNews.content}}</p>
+            <br />
+            <p class="content">{{ singleNews.content }}</p>
           </mat-expansion-panel>
         </mat-accordion>
       </div>
     </mat-tab>
 
-    <mat-tab label="Image" >
+    <mat-tab label="Image">
       <div class="container-img">
-        <img [align]="'center'" [src]="singleNews.imageUrl">
+        <img [align]="'center'" [src]="singleNews.imageUrl" />
       </div>
     </mat-tab>
-
-
   </mat-tab-group>
-
-
 </div>
 
 <mat-dialog-actions [align]="'end'">
-  <button  mat-dialog-close mat-raised-button>Close Window</button>
-
+  <button mat-dialog-close mat-raised-button>Close Window</button>
 </mat-dialog-actions>
