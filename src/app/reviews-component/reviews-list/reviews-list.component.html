@@ -52,9 +52,7 @@
           <mat-icon>edit</mat-icon>
         </button>
 
-        <button mat-raised-button color="warn" class="actions-button2" (click)="onClickDeleteReview(row._id, row.title);
-                                                                                openSnackBar();
-        ">
+        <button mat-raised-button color="warn" class="actions-button2" (click)="deleteDialog(row);">
           <mat-icon>delete</mat-icon>
         </button>
 

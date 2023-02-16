@@ -9,6 +9,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { NewsEditDialogComponent } from '../dialogs/edit-dialog/news-edit-dialog/news-edit-dialog.component';
 import { NewsAddDialogComponent } from '../dialogs/add-dialog/news-add-dialog/news-add-dialog.component';
 import { NewsViewDialogComponent } from '../dialogs/news-view-dialog/news-view-dialog.component';
+import {DeleteDialogComponent} from "../../shared/dialog/delete-dialog/delete-dialog.component";
 
 export interface VideogameShort {
   title: string;
@@ -63,14 +64,31 @@ export class NewsListComponent implements OnInit {
     });
   }
 
+  deleteDialog(row: any) {
+    this.dialog
+      .open(DeleteDialogComponent, {
+        panelClass: 'delete-dialog',
+        data: row,
+      })
+      .afterClosed()
+      .subscribe((value) => {
+        if (value === 'deleted') {
+          this.onClickDeleteSingleNews(row._id, row.title);
+
+        }
+      });
+  }
+
+
   lastSingleNewsDeleted = '';
   //funzione per eliminazione di un singleNews
   onClickDeleteSingleNews(id: string, title: string) {
     this.newsService.deleteNewsById(id).subscribe(() => {
       this.getAllNews();
+      this.lastSingleNewsDeleted = title;
+      this.openSnackBar();
     });
 
-    this.lastSingleNewsDeleted = title;
   }
 
   //funzione filter della tabella

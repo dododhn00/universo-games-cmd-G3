@@ -10,6 +10,7 @@ import {Review} from "../../model/review";
 import {ReviewsAddDialogComponent} from "../dialogs/reviews-add-dialog/reviews-add-dialog.component";
 import {ReviewsEditDialogComponent} from "../dialogs/reviews-edit-dialog/reviews-edit-dialog.component";
 import {ReviewsViewDialogComponent} from "../dialogs/reviews-view-dialog/reviews-view-dialog.component";
+import {DeleteDialogComponent} from "../../shared/dialog/delete-dialog/delete-dialog.component";
 
 @Component({
   selector: 'app-reviews-list',
@@ -57,15 +58,32 @@ export class ReviewsListComponent implements OnInit{
     });
   }
 
+  deleteDialog(row: any) {
+    this.dialog
+      .open(DeleteDialogComponent, {
+        panelClass: 'delete-dialog',
+        data: row,
+      })
+      .afterClosed()
+      .subscribe((value) => {
+        if (value === 'deleted') {
+          this.onClickDeleteReview(row._id, row.title);
+
+        }
+      });
+  }
+
 
   lastReviewDeleted = ''
   //funzione per eliminazione di un videogame
   onClickDeleteReview(id:string, title:string){
     this.reviewsService.deleteReviewById(id).subscribe(() =>{
       this.getAllReviews();
+      this.lastReviewDeleted = title;
+      this.openSnackBar();
     });
 
-    this.lastReviewDeleted = title;
+
   }
 
 
