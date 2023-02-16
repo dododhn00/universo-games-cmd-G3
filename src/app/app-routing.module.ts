@@ -3,19 +3,32 @@ import { RouterModule, Routes } from '@angular/router';
 import {VideogamesComponent} from "./pages/videogames/videogames.component";
 import {NewsComponent} from "./pages/news/news.component";
 import {ReviewsComponent} from "./pages/reviews/reviews.component";
+import {UserGuard} from "./guard/user.guard";
+import {LoginComponent} from "./pages/login/login.component";
 
 const routes: Routes = [
   {
-    path: '',
-    component: VideogamesComponent
+    path: 'videogames',
+    component: VideogamesComponent,
+    canActivate: [UserGuard],
   },
   {
     path:'news',
-    component: NewsComponent
+    component: NewsComponent,
+    canActivate: [UserGuard],
   },
   {
     path:'reviews',
-    component: ReviewsComponent
+    component: ReviewsComponent,
+    canActivate: [UserGuard],
+  },
+  {
+    path:'',
+    component:LoginComponent,
+  },
+  {
+    path: '**',
+    redirectTo: '',
   },
 ];
 

@@ -41,6 +41,8 @@ import {MatAutocompleteModule} from "@angular/material/autocomplete";
 import {MatExpansionModule} from "@angular/material/expansion";
 import {MatTabsModule} from "@angular/material/tabs";
 import {MatListModule} from "@angular/material/list";
+import { LoginFormComponent } from './auth-component/login-form/login-form.component';
+import { LoginComponent } from './pages/login/login.component';
 
 
 @NgModule({
@@ -64,7 +66,9 @@ import {MatListModule} from "@angular/material/list";
     NewsEditDialogComponent,
     ReviewsAddDialogComponent,
     ReviewsEditDialogComponent,
-    ReviewsViewDialogComponent
+    ReviewsViewDialogComponent,
+    LoginFormComponent,
+    LoginComponent
   ],
 
   imports: [

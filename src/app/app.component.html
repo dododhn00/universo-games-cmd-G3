@@ -1,8 +1,8 @@
 <div class="container">
-  <div class="navbar">
+  <div class="navbar" *ngIf="isLogged">
     <app-navbar></app-navbar>
   </div>
-  <div class="content">
+  <div [class.content] = "isLogged === true">
     <router-outlet id="routerOutlet"></router-outlet>
   </div>
 </div>
