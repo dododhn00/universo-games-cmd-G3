@@ -9,6 +9,7 @@ import {GamesEditDialogComponent} from "../dialogs/edit-dialog/games-edit-dialog
 import {MatSort} from "@angular/material/sort";
 import {GamesAddDialogComponent} from "../dialogs/add-dialog/games-add-dialog.component";
 import {GamesViewDialogComponent} from "../dialogs/games-view-dialog/games-view-dialog.component";
+import {DeleteDialogComponent} from "../../shared/dialog/delete-dialog/delete-dialog.component";
 
 export interface VideogameShort{
   title: string,
@@ -62,14 +63,30 @@ export class VideogamesListComponent implements OnInit {
   }
 
 
+  deleteDialog(row: any) {
+    this.dialog
+      .open(DeleteDialogComponent, {
+        panelClass: 'delete-dialog',
+        data: row,
+      })
+      .afterClosed()
+      .subscribe((value) => {
+        if (value === 'deleted') {
+          this.onClickDeleteVideogame(row._id, row.title);
+
+        }
+      });
+  }
+
+
   lastGameDeleted = ''
   //funzione per eliminazione di un videogame
   onClickDeleteVideogame(id:string, title:string){
     this.gameService.deleteVideogameById(id).subscribe(() =>{
       this.getAllVideogames();
+      this.lastGameDeleted = title;
+      this.openSnackBar();
     });
-
-    this.lastGameDeleted = title;
   }
 
 

@@ -43,6 +43,7 @@ import {MatTabsModule} from "@angular/material/tabs";
 import {MatListModule} from "@angular/material/list";
 import { LoginFormComponent } from './auth-component/login-form/login-form.component';
 import { LoginComponent } from './pages/login/login.component';
+import { DeleteDialogComponent } from './shared/dialog/delete-dialog/delete-dialog.component';
 
 
 @NgModule({
@@ -68,7 +69,8 @@ import { LoginComponent } from './pages/login/login.component';
     ReviewsEditDialogComponent,
     ReviewsViewDialogComponent,
     LoginFormComponent,
-    LoginComponent
+    LoginComponent,
+    DeleteDialogComponent
   ],
 
   imports: [

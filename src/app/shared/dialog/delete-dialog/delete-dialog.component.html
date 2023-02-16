@@ -1,0 +1,13 @@
+<div class="container">
+  <h2 [align]="'center'" mat-dialog-title>{{dataToDelete.title}}</h2>
+
+  <div [align]="'center'" mat-dialog-content class="content">
+    <p>Are you sure to delete?</p>
+  </div>
+
+
+  <div [align]="'center'" mat-dialog-actions>
+    <button color="basic" mat-raised-button mat-dialog-close>Cancel</button>
+    <button color="warn" mat-raised-button mat-dialog-close="deleted">Confirm</button>
+  </div>
+</div>

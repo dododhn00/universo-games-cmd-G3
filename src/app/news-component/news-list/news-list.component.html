@@ -69,7 +69,7 @@
           mat-raised-button
           color="warn"
           class="actions-button2"
-          (click)="onClickDeleteSingleNews(row._id, row.title); openSnackBar()"
+          (click)="deleteDialog(row);"
         >
           <mat-icon>delete</mat-icon>
         </button>
