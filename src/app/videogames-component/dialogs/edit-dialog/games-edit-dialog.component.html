@@ -1,19 +1,20 @@
 <div class="container">
-  <h2 mat-dialog-title> Edit Videogame </h2>
+  <h2 mat-dialog-title>Edit Videogame</h2>
   <div mat-dialog-content class="content">
-
     <form [formGroup]="form">
       <mat-form-field appearance="outline">
         <mat-label>Title</mat-label>
-        <input formControlName="title" matInput placeholder="Title">
+        <input formControlName="title" matInput placeholder="Title" />
         <mat-icon matSuffix>title</mat-icon>
-
       </mat-form-field>
 
       <mat-form-field appearance="outline">
         <mat-label>Category</mat-label>
         <mat-select formControlName="category" placeholder="category">
-          <mat-option value="{{category.name}}" *ngFor="let category of categories">
+          <mat-option
+            value="{{ category.name }}"
+            *ngFor="let category of categories"
+          >
             {{ category.name }}
           </mat-option>
         </mat-select>
@@ -21,84 +22,135 @@
 
       <mat-form-field appearance="outline" class="example-form-field">
         <mat-label>Release Date</mat-label>
-        <input formControlName="releaseDate" matInput [matDatepicker]="datepicker">
+        <input
+          formControlName="releaseDate"
+          matInput
+          [matDatepicker]="datepicker"
+        />
 
-        <mat-datepicker-toggle matIconSuffix [for]="datepicker"></mat-datepicker-toggle>
+        <mat-datepicker-toggle
+          matIconSuffix
+          [for]="datepicker"
+        ></mat-datepicker-toggle>
         <mat-datepicker #datepicker>
           <mat-datepicker-actions>
             <button mat-button matDatepickerCancel>Cancel</button>
-            <button mat-raised-button color="primary" matDatepickerApply>Apply</button>
+            <button mat-raised-button color="primary" matDatepickerApply>
+              Apply
+            </button>
           </mat-datepicker-actions>
         </mat-datepicker>
       </mat-form-field>
 
       <mat-form-field appearance="outline">
         <mat-label>Genre</mat-label>
-        <input formControlName="genre" matInput placeholder="Genre">
+        <input formControlName="genre" matInput placeholder="Genre" />
         <mat-icon matSuffix>text_fields</mat-icon>
-
       </mat-form-field>
 
       <mat-form-field appearance="outline">
         <mat-label>Software House</mat-label>
-        <input formControlName="softwareHouse" matInput placeholder="Software House">
+        <input
+          formControlName="softwareHouse"
+          matInput
+          placeholder="Software House"
+        />
         <mat-icon matSuffix>home</mat-icon>
-
       </mat-form-field>
 
       <mat-form-field appearance="outline">
         <mat-label>Publisher</mat-label>
-        <input formControlName="publisher" matInput placeholder="Publisher">
+        <input formControlName="publisher" matInput placeholder="Publisher" />
         <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-
       </mat-form-field>
 
       <mat-form-field appearance="outline">
         <mat-label>Number of Players</mat-label>
-        <input type="number" formControlName="numberOfPlayers" matInput placeholder="1">
+        <input
+          type="number"
+          formControlName="numberOfPlayers"
+          matInput
+          placeholder="1"
+        />
         <mat-icon matSuffix>people_outline</mat-icon>
-
       </mat-form-field>
 
       <mat-form-field appearance="outline">
         <mat-label>Cover Image</mat-label>
-        <input formControlName="coverImage" matInput placeholder="Image URL">
+        <input formControlName="coverImage" matInput placeholder="Image URL" />
         <mat-icon matSuffix>add_a_photo</mat-icon>
-
       </mat-form-field>
 
       <h3>Languages</h3>
       <div formGroupName="languages">
-
-        <div class="voice" formArrayName="voice"
-             *ngFor="let singleVoice of voiceFormArray.controls; let i = index">
+        <div
+          class="voice"
+          formArrayName="voice"
+          *ngFor="let singleVoice of voiceFormArray.controls; let i = index"
+        >
           <mat-form-field appearance="outline">
             <mat-label>Voice</mat-label>
-            <input [formControlName]="i" matInput placeholder="Voice">
-            <button type="button" mat-button matSuffix mat-raised-button class="button-delete" (click)="deleteVoice(i)">X</button>
+            <input [formControlName]="i" matInput placeholder="Voice" />
+            <button
+              type="button"
+              mat-button
+              matSuffix
+              mat-raised-button
+              class="button-delete"
+              (click)="deleteVoice(i)"
+            >
+              X
+            </button>
           </mat-form-field>
         </div>
 
-        <button type="button" color="primary" mat-raised-button class="button-add" (click)="addVoice()">ADD VOICE</button>
+        <button
+          type="button"
+          color="primary"
+          mat-raised-button
+          class="button-add"
+          (click)="addVoice()"
+        >
+          ADD VOICE
+        </button>
 
-        <div class="text" formArrayName="text"
-             *ngFor="let singleText of textFormArray.controls; let i = index">
+        <div
+          class="text"
+          formArrayName="text"
+          *ngFor="let singleText of textFormArray.controls; let i = index"
+        >
           <mat-form-field appearance="outline">
             <mat-label>Text</mat-label>
-            <input [formControlName]="i" matInput placeholder="Text">
-            <button type="button" mat-raised-button matSuffix class="button-delete" (click)="deleteText(i)">X</button>
+            <input [formControlName]="i" matInput placeholder="Text" />
+            <button
+              type="button"
+              mat-raised-button
+              matSuffix
+              class="button-delete"
+              (click)="deleteText(i)"
+            >
+              X
+            </button>
           </mat-form-field>
         </div>
 
-        <button type="button" color="primary" mat-raised-button class="button-add" (click)="addText()">ADD TEXT</button>
+        <button
+          type="button"
+          color="primary"
+          mat-raised-button
+          class="button-add"
+          (click)="addText()"
+        >
+          ADD TEXT
+        </button>
       </div>
     </form>
   </div>
 
   <mat-dialog-actions [align]="'end'">
     <button color="warn" mat-dialog-close mat-raised-button>Close</button>
-    <button color="primary" (click)="onSubmitEditVideogame()" mat-raised-button>Apply Changes</button>
-
+    <button color="primary" (click)="onSubmitEditVideogame()" mat-raised-button>
+      Apply Changes
+    </button>
   </mat-dialog-actions>
-
 </div>
