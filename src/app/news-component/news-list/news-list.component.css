@@ -40,6 +40,11 @@
   margin-bottom: 1.5rem;
 }
 
+td , th {
+  white-space: normal;
+  word-wrap: break-word;
+  max-width: 300px;
+}
 @media screen and (min-width: 1300px) {
   td {
     font-size: 1.1rem;

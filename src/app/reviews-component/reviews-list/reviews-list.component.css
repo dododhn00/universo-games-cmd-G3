@@ -18,20 +18,19 @@
 
 
 
-.actions-button1{
+.actions-button1 {
   margin-top: 0.4rem;
   margin-right: 0.4rem;
   padding-right: 0.2rem;
   margin-bottom: 0.4rem;
-  width:0.5rem;
+  width: 0.5rem;
 }
 
-.actions-button2{
+.actions-button2 {
   margin-top: 0.4rem;
   margin-right: 0.4rem;
   padding-right: 0.2rem;
   margin-bottom: 0.4rem;
-
 }
 
 .hide-low-resolution {
@@ -44,7 +43,11 @@
   margin-bottom:1.5rem;
 }
 
-
+td , th {
+  white-space: normal;
+  word-wrap: break-word;
+  max-width: 310px;
+}
 
 
 @media screen and (min-width: 1300px) {
@@ -66,7 +69,6 @@
   }
 
   td, th {
-    width:20%;
   }
 
   .mat-elevation-z8{
